@@ -3,13 +3,21 @@ import ReactDOM, { render } from 'react-dom';
 import App from 'routes/App';
 import reducers from "ducks/combine";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import theme from './theme'
 import registerServiceWorker from "./registerServiceWorker";
+import axios from 'axios';
+import axiosMiddleware from 'redux-axios-middleware';
+
 
 import './index.css';
 import './i18n';
+
+const client = axios.create({
+    baseURL:'https://krillcoin.watch/api',
+    responseType: 'json'
+});
 
 // Since we are using HtmlWebpackPlugin WITHOUT a template, we should create our own root node in the body element before rendering into it
 let root = document.createElement('div');
@@ -17,7 +25,7 @@ root.id = "root";
 document.body.appendChild( root );
 let store = null;
 
-store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+store = createStore(reducers, applyMiddleware(axiosMiddleware(client)), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
     <Provider store={store}>
