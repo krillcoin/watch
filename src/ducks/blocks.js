@@ -9,7 +9,7 @@ export const initial = {
 export default function(state = initial, action) {
     switch (action.type) {
         case `${types.FETCH_LATEST_BLOCKS}_SUCCESS`:
-            return { ...state, latest: action.payload };
+            return { ...state, latest: action.payload.data };
         case `${types.FETCH_LATEST_BLOCKS}_FAILURE`:
             console.error('FETCH_LATEST_BLOCKS FAIL');
             return { ...state, latest: [] };
