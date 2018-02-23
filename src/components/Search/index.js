@@ -6,14 +6,16 @@ import { TextField } from 'redux-form-material-ui';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
+import {withRouter} from 'react-router-dom'
 
 const styles = theme => ({
     button: {
         margin: theme.spacing.unit,
     },
     formWrap: {
-        maxWidth: theme.typography.pxToRem(400),
-        marginBottom: 30
+        maxWidth: theme.typography.pxToRem(600),
+        marginBottom: 30,
+        width: '100%'
     }
 });
 
@@ -32,13 +34,13 @@ class Search extends React.Component {
         if (detectedFormat !== 'none') {
             switch (detectedFormat) {
                 case 'account':
-                    //push to account
+                    this.props.history.push(`/account/${(values.search).replace(/ /g, '+')}`)
                     break;
                 case 'block_tx_hash':
-                    //push to block/tx
+                    //this.props.history.push(`/block/${(values.search).replace(/ /g, '+')}`)
                     break;
                 case 'block_number':
-                    //push to block
+                    this.props.history.push(`/block/${(values.search)}`)
                     break;
             }
         }
@@ -79,9 +81,15 @@ class Search extends React.Component {
             <Grid container justify="center">
                 <Grid item className={classes.formWrap}>
                     <form onSubmit={handleSubmit(this.submit)}>
-                        <Typography variant="title" align="center">Search accounts and blocks:</Typography>
-                        <Field name="search" component={TextField} placeholder="Address, block/tx hash or height" helperText={`Format Detected: ${helperText}`} onChange={this.detectFormat} required/>
-                        <Button className={classes.button} type="submit">Go</Button>
+                        <Typography variant="title" align="center" gutterBottom>Search accounts and blocks:</Typography>
+                        <Grid container>
+                            <Grid item style={{flex: '1 0 auto'}}>
+                                <Field name="search" fullWidth component={TextField} placeholder="Address, block/tx hash or height" helperText={`Format Detected: ${helperText}`} onChange={this.detectFormat} required/>
+                            </Grid>
+                            <Grid item style={{flex: '1 0 auto', maxWidth: 100}}>
+                                <Button className={classes.button} type="submit" variant="raised" color="secondary">Go</Button>
+                            </Grid>
+                        </Grid>
                     </form>
                 </Grid>
             </Grid>
@@ -90,6 +98,7 @@ class Search extends React.Component {
 }
 
 export default compose(
+    withRouter,
     reduxForm({form: 'searchForm'}),
     withStyles(styles, {withTheme: true})
 )(Search);

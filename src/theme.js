@@ -37,6 +37,21 @@ export default {
             root: {
                 marginTop: -10
             }
+        },
+        MuiAppBar: {
+            colorPrimary: {
+                backgroundColor: '#697796'
+            }
+        },
+        MuiButton: {
+            raisedSecondary: {
+                backgroundColor: '#62E2C3'
+            }
+        },
+        MuiTabIndicator: {
+            colorSecondary: {
+                backgroundColor: '#62E2C3'
+            }
         }
     }
 }

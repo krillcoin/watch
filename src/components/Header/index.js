@@ -21,6 +21,9 @@ const styles = {
         marginLeft: -12,
         marginRight: 20,
     },
+    link: {
+        color: 'white'
+    }
 };
 class Header extends React.Component {
     state = {
@@ -48,7 +51,7 @@ class Header extends React.Component {
                         </Typography>
                         <Grid container justify="flex-start">
                             <Grid item>
-                                <Link to="/">
+                                <Link to="/" className={classes.link}>
                                     <Button color="inherit">Search</Button>
                                 </Link>
                                 <Button
@@ -72,7 +75,7 @@ class Header extends React.Component {
                                         <MenuItem onClick={this.handleClose}>Hashing Distribution</MenuItem>
                                     </Link>
                                 </Menu>
-                                <Link to="/about">
+                                <Link to="/about" className={classes.link}>
                                     <Button color="inherit">What is this?</Button>
                                 </Link>
                             </Grid>
