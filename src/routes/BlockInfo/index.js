@@ -144,7 +144,7 @@ class BlockInfo extends React.Component {
                                                 primary="Miner"
                                             />
                                             <ListItemSecondaryAction>
-                                                {blocks.single.miner_address}
+                                                <Link to={`/account/${blocks.single.miner_address}`}>{blocks.single.miner_address}</Link>
                                             </ListItemSecondaryAction>
                                         </ListItem>
                                     </List>
@@ -154,11 +154,11 @@ class BlockInfo extends React.Component {
                                 <Grid container key={index}>
                                     <Grid item xs={12} sm={5}>
                                         <Typography variant="title">Sender</Typography>
-                                        <Typography variant="caption">{transaction.sender_address}</Typography>
+                                        <Typography variant="caption"><Link to={`/account/${transaction.sender_address}`}>{transaction.sender_address}</Link></Typography>
                                     </Grid>
                                     <Grid item xs={12} sm={5}>
                                         <Typography variant="title">Receiver</Typography>
-                                        <Typography variant="caption">{transaction.receiver_address}</Typography>
+                                        <Typography variant="caption"><Link to={`/account/${transaction.receiver_address}`}>{transaction.receiver_address}</Link></Typography>
                                     </Grid>
                                     <Grid item xs={12} sm={2}>
                                         <Typography variant="title">Value</Typography>

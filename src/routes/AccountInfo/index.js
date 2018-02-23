@@ -11,6 +11,7 @@ import Grid from 'material-ui/Grid';
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import List, { ListItem,  ListItemSecondaryAction,  ListItemText,} from 'material-ui/List';
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
     card: {
@@ -120,7 +121,25 @@ class AccountInfo extends React.Component {
                         ))}
                         </List>
                     </div>}
-                    {value === 1 && <div>Blocks</div>}
+                    {value === 1 && <div>
+                        <List>
+                            {blocks.account.blocks.map((block, index) => (
+
+                                <div>
+                                    <ListItem>
+                                        <ListItemText
+                                            primary={<div>Mined Block <Link to={`/block/${block.height}`}>#{block.height}</Link></div>}
+                                            secondary={block.timestamp}
+                                        />
+                                        <ListItemSecondaryAction>
+                                            {block.reward}
+                                        </ListItemSecondaryAction>
+                                        <br/>
+                                    </ListItem>
+                                </div>
+                            ))}
+                        </List>
+                    </div>}
                     </div>}
                 </Grid>
             </Grid>
