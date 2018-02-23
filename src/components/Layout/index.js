@@ -1,17 +1,27 @@
 import React from 'react';
+import { withStyles } from 'material-ui/styles';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
+const styles = theme => ({
+    wrap: {
+        padding: theme.typography.pxToRem(30)
+    }
+})
+
 class Layout extends React.Component {
     render() {
+        const {classes} = this.props;
         return (
             <div>
                 <Header/>
-                {this.props.children}
+                    <div className={classes.wrap}>
+                        {this.props.children}
+                    </div>
                 <Footer/>
             </div>
         );
     }
 }
 
-export default Layout;
+export default withStyles(styles, {withTheme: true})(Layout);
