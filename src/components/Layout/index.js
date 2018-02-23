@@ -7,7 +7,8 @@ import LatestBlocks from 'components/LatestBlocks';
 
 const styles = theme => ({
     wrap: {
-        padding: theme.typography.pxToRem(30)
+        padding: theme.typography.pxToRem(30),
+        marginTop: 64
     }
 })
 

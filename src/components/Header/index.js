@@ -44,7 +44,7 @@ class Header extends React.Component {
 
         return (
             <div className={classes.root}>
-                <AppBar position="static">
+                <AppBar position="fixed">
                     <Toolbar>
                         <Typography variant="title" color="inherit" className={classes.flex}>
                             KrillCoin Watch
