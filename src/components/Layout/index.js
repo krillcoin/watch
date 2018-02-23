@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from 'material-ui/styles';
+import Search from 'components/Search';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -16,6 +17,7 @@ class Layout extends React.Component {
             <div>
                 <Header/>
                     <div className={classes.wrap}>
+                        <Search/>
                         {this.props.children}
                     </div>
                 <Footer/>
