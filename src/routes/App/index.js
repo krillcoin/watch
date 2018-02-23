@@ -6,6 +6,7 @@ import Layout from 'components/Layout';
 import Home from 'routes/Home';
 import About from 'routes/About';
 import News from 'routes/News';
+import BlockInfo from 'routes/BlockInfo';
 import GlobalHashRate from 'routes/Charts/GlobalHashRate';
 import HashingDistribution from 'routes/Charts/HashingDistribution';
 
@@ -20,6 +21,7 @@ class App extends Component {
                     <Route exact path='/news' component={News}/>
                     <Route exact path='/charts/global-hashrate' component={GlobalHashRate}/>
                     <Route exact path='/charts/hashing-distribution' component={HashingDistribution}/>
+                    <Route path='/block/:height' component={BlockInfo}/>
                 </Layout>
             </Router>
         );

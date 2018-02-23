@@ -33,6 +33,10 @@ export default {
         shadowColor: fullBlack
     },
     overrides: {
-
+        MuiListItemSecondaryAction: {
+            root: {
+                marginTop: -10
+            }
+        }
     }
 }

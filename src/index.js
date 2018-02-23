@@ -25,7 +25,7 @@ root.id = "root";
 document.body.appendChild( root );
 let store = null;
 
-store = createStore(reducers, applyMiddleware(axiosMiddleware(client)), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+store = createStore(reducers, applyMiddleware(axiosMiddleware(client)));
 
 ReactDOM.render(
     <Provider store={store}>
