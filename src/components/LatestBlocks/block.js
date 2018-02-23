@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 /*
 {"height":1046,
@@ -15,22 +15,29 @@ import {Link} from 'react-router-dom';
  */
 
 class Block extends React.Component {
-    render() {
-        const {block} = this.props;
-        return (
-            <div className="row block-row">
-                <div className="col s1">#{block.height}</div>
-                <div className="col s2">12:23:14 PM</div>
-                <div className="col s2">0 transactions</div>
-                <div className="col s6" style={{whiteSpace: "nowrap", textOverflow: "ellipsis", overflow: "hidden"}}>
-                    found by <Link to={`/account/${(block.miner_address).replace(/ /g, '+')}`}>{block.miner_address}</Link>
-                </div>
-                <div className="col s1">494 Bytes</div>
-            </div>
-        );
+  render() {
+    function convertTime(timestamp) {
+      var date = new Date(timestamp * 1000);
+      var hours = date.getHours();
+      var minutes = "0" + date.getMinutes();
+      var seconds = "0" + date.getSeconds();
+      var formattedTime = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+      return formattedTime;
     }
+
+    const { block } = this.props;
+    return (
+      <div>
+        <div>#{block.height}</div>
+        <div> {convertTime(block.timestamp)} </div>
+        <div>{block.transaction_count}</div>
+        <div style={{ whiteSpace: "nowrap", textOverflow: "ellipsis", overflow: "hidden" }}>
+          found by <Link to={`/account/${block.miner_address.replace(/ /g, "+")}`}>{block.miner_address}</Link>
+        </div>
+        <div>{block.size} Bytes</div>
+      </div>
+    );
+  }
 }
 
 export default Block;
-
-
