@@ -21,7 +21,7 @@ export default {
     palette: {
         primary1Color: '#697796',
         primary2Color: blueGrey700,
-        primary3Color: blueGrey700,
+        primary3Color: '#F0F0F0',
         accent1Color: orange500,
         accent2Color: orange700,
         accent3Color: orange700,

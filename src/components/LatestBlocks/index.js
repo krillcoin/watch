@@ -10,7 +10,9 @@ import Block from "./block";
 
 const styles = theme => ({
     wrap: {
-        padding: 30
+        padding: 30,
+        width: '70%',
+        margin: '0 auto'
     }
 });
 
@@ -23,7 +25,7 @@ class LatestBlocks extends React.Component {
     render() {
         const {blocks, classes} = this.props;
         return (
-            <div className={classes.wrap} style={{width: "70%"}}>
+            <div className={classes.wrap}>
                 <Typography variant="title" component="h5">LATEST BLOCKS</Typography>
                 {blocks.latest && blocks.latest.map((block, index) => (
                     <Block key={index} block={block}/>
