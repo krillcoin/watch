@@ -71,7 +71,7 @@ class AccountInfo extends React.Component {
                         </div>
                         <CardContent>
                             <Grid container>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12}>
                                     <List>
                                         <ListItem>
                                             <ListItemText
