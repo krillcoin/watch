@@ -1,11 +1,13 @@
 export const types = {
     FETCH_LATEST_BLOCKS: "FETCH_LATEST_BLOCKS",
     FETCH_BLOCK: "FETCH_BLOCK",
+    FETCH_STATISTICS: "FETCH_STATISTICS"
 };
 
 export const initial = {
     latest: [],
-    single: null
+    single: null,
+    statistics: []
 };
 
 export default function(state = initial, action) {
@@ -22,6 +24,14 @@ export default function(state = initial, action) {
         case `${types.FETCH_BLOCK}_FAILURE`:
             console.error('FETCH_BLOCK FAIL');
             return { ...state, single: null };
+
+        case `${types.FETCH_STATISTICS}_SUCCESS`:
+            console.log('FETCH_STATISTICS ', action.payload)
+            return { ...state, statistics: action.payload.data };
+        case `${types.FETCH_STATISTICS}_FAILURE`:
+            console.error('FETCH_BLOCK FAIL');
+            return { ...state, statistics: null };
+
         default:
             return state;
     }
@@ -33,6 +43,14 @@ export const actions = {
         payload: {
             request:{
                 url:'/blocks/latest'
+            }
+        }
+    }),
+    fetchStatistics: (type, range) => ({
+        type: types.FETCH_STATISTICS,
+        payload: {
+            request:{
+                url:`/Blocks/statistics/${type}/${range}`
             }
         }
     }),

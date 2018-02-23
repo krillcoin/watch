@@ -72,9 +72,6 @@ class Header extends React.Component {
                                         <MenuItem onClick={this.handleClose}>Hashing Distribution</MenuItem>
                                     </Link>
                                 </Menu>
-                                <Link to="/news">
-                                    <Button color="inherit">News</Button>
-                                </Link>
                                 <Link to="/about">
                                     <Button color="inherit">What is this?</Button>
                                 </Link>
