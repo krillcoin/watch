@@ -23,7 +23,7 @@ class LatestBlocks extends React.Component {
     render() {
         const {blocks, classes} = this.props;
         return (
-            <div className={classes.wrap}>
+            <div className={classes.wrap} style={{width: "70%"}}>
                 <Typography variant="title" component="h5">LATEST BLOCKS</Typography>
                 {blocks.latest && blocks.latest.map((block, index) => (
                     <Block key={index} block={block}/>
