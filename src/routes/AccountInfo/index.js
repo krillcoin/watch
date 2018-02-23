@@ -95,7 +95,7 @@ class AccountInfo extends React.Component {
                     </Card>
 
                     <AppBar position="static">
-                        <Tabs value={value} onChange={this.handleChange}>
+                        <Tabs value={value} onChange={this.handleChange} fullWidth>
                             <Tab label="Transactions" />
                             <Tab label="Blocks" />
                         </Tabs>

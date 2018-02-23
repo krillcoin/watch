@@ -87,7 +87,7 @@ class Search extends React.Component {
                                 <Field name="search" fullWidth component={TextField} placeholder="Address, block/tx hash or height" helperText={`Format Detected: ${helperText}`} onChange={this.detectFormat} required/>
                             </Grid>
                             <Grid item style={{flex: '1 0 auto', maxWidth: 100}}>
-                                <Button className={classes.button} type="submit" variant="raised">Go</Button>
+                                <Button className={classes.button} type="submit" variant="raised" color="secondary">Go</Button>
                             </Grid>
                         </Grid>
                     </form>
