@@ -28,7 +28,11 @@ class Block extends React.Component {
     const { block } = this.props;
     return (
       <div style={{ background: "#F0F0F0", display: "flex", justifyContent:"space-around", alignItems: "center", margin: "1rem 0", letterSpacing: "0.02em", border: "1px solid #D9DEE4", height:"45px"}}>
-        <div style={{display: "inline", padding: "0.6em 1em", width:"10%" }}>#{block.height}</div>
+        <div style={{display: "inline", padding: "0.6em 1em", width:"10%" }}>
+        <Link to={`/block/${block.height}`} >
+        #{block.height}
+        </Link>
+        </div>
         <div style={{display: "inline", padding: "0.6em 1em", width:"10%"  }}> {convertTime(block.timestamp)} </div>
         <div style={{display: "inline", padding: "0.6em 1em", width:"10%"  }}>{block.transaction_count} txns </div>
         <div style={{ display: "inline", padding: "0.6em 1em", whiteSpace: "nowrap", textOverflow: "ellipsis", overflow: "hidden", width:"60%"  }}>
