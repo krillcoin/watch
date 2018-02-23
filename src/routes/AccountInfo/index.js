@@ -73,7 +73,7 @@ class AccountInfo extends React.Component {
                             <Grid container>
                                 <Grid item xs={12}>
                                     <List>
-                                        <ListItem> 
+                                        <ListItem></ListItem>
                                             <ListItemText
                                                 primary="Balance"
                                             />
