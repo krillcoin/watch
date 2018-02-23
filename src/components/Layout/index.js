@@ -3,10 +3,12 @@ import { withStyles } from 'material-ui/styles';
 import Search from 'components/Search';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import LatestBlocks from 'components/LatestBlocks';
 
 const styles = theme => ({
     wrap: {
-        padding: theme.typography.pxToRem(30)
+        padding: theme.typography.pxToRem(30),
+        marginTop: 64
     }
 })
 
@@ -19,6 +21,7 @@ class Layout extends React.Component {
                     <div className={classes.wrap}>
                         <Search/>
                         {this.props.children}
+                        <LatestBlocks/>
                     </div>
                 <Footer/>
             </div>

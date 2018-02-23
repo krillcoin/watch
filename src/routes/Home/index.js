@@ -1,7 +1,5 @@
 import React from "react";
 
-import LatestBlocks from 'components/LatestBlocks';
-
 class Home extends React.Component {
 
     render() {
@@ -12,7 +10,6 @@ class Home extends React.Component {
         }
         return (
             <div className="Home" style={center}>
-                <LatestBlocks/>
             </div>
         );
     }
