@@ -1,13 +1,15 @@
 export const types = {
     FETCH_LATEST_BLOCKS: "FETCH_LATEST_BLOCKS",
     FETCH_BLOCK: "FETCH_BLOCK",
-    FETCH_STATISTICS: "FETCH_STATISTICS"
+    FETCH_STATISTICS: "FETCH_STATISTICS",
+    FETCH_ACCOUNT: "FETCH_ACCOUNT"
 };
 
 export const initial = {
     latest: [],
     single: null,
-    statistics: []
+    statistics: [],
+    account: null
 };
 
 export default function(state = initial, action) {
@@ -31,6 +33,13 @@ export default function(state = initial, action) {
         case `${types.FETCH_STATISTICS}_FAILURE`:
             console.error('FETCH_BLOCK FAIL');
             return { ...state, statistics: null };
+
+        case `${types.FETCH_ACCOUNT}_SUCCESS`:
+            console.log('FETCH_ACCOUNT ', action.payload)
+            return { ...state, account: action.payload.data };
+        case `${types.FETCH_ACCOUNT}_FAILURE`:
+            console.error('FETCH_ACCOUNT FAIL');
+            return { ...state, account: null };
 
         default:
             return state;
@@ -63,6 +72,20 @@ export const actions = {
                 params: {
                     filter: {
                         include: 'transactions'
+                    }
+                }
+            }
+        }
+    }),
+    fetchAccount: address => ({
+        type: types.FETCH_ACCOUNT,
+        payload: {
+            request:{
+                url:`/Accounts/${address}`,
+                type: 'GET',
+                params: {
+                    filter: {
+                        include: ['blocks', 'transactions']
                     }
                 }
             }
