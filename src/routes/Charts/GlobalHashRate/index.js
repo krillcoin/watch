@@ -35,7 +35,7 @@ class GlobalHashRate extends React.Component {
     render() {
         const {blocks} = this.props;
         return (
-            <div>
+            <div style={{maxWidth: 900, margin: '0 auto'}}>
                 <Typography variant="title">Global Hashrate</Typography>
                 <Typography variant="subheading">Estimated from mining difficulty</Typography>
                 <Paper>
@@ -44,13 +44,14 @@ class GlobalHashRate extends React.Component {
                         indicatorColor="primary"
                         textColor="primary"
                         onChange={this.handleChange}
+                        fullWidth
                     >
                         <Tab label="Day" />
                         <Tab label="Week" />
                         <Tab label="Month" />
                         <Tab label="Year" />
                     </Tabs>
-                    <AreaChart width={730} height={250} data={blocks.statistics}
+                    <AreaChart width={900} height={250} data={blocks.statistics}
                                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                         <defs>
                             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">

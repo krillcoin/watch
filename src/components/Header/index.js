@@ -1,6 +1,10 @@
 import React from 'react';
+import {compose} from 'recompose';
+import {withStyles} from 'material-ui/styles';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {actions as krillActions} from "ducks/krill";
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -39,7 +43,7 @@ class Header extends React.Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, krill } = this.props;
         const { anchorEl } = this.state;
 
         return (
@@ -83,7 +87,7 @@ class Header extends React.Component {
                         <Grid container alignItems="flex-end">
                             <Grid item xs={12}>
                                 <Typography variant="body1" color="inherit" align="right">
-                                    Status: Connected @ 1234
+                                    Status: Connected @ {krill.height}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -98,4 +102,19 @@ Header.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Header);
+function mapStateToProps(state) {
+    return {
+        krill: state.krill
+    };
+}
+
+function mapPropsToDispatch(dispatch) {
+    return {
+        krillActions: bindActionCreators(krillActions, dispatch)
+    };
+}
+
+export default compose(
+    connect(mapStateToProps, mapPropsToDispatch),
+    withStyles(styles)
+)(Header);

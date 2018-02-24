@@ -35,7 +35,7 @@ class GlobalHashRate extends React.Component {
     render() {
         const {blocks} = this.props;
         return (
-            <div>
+            <div style={{maxWidth: 900, margin: '0 auto'}}>
                 <Typography variant="title">Hashing Distribution</Typography>
                 <Typography variant="subheading">Number of blocks mined per address</Typography>
                 <Paper>
@@ -44,13 +44,14 @@ class GlobalHashRate extends React.Component {
                         indicatorColor="primary"
                         textColor="primary"
                         onChange={this.handleChange}
+                        fullWidth
                     >
                         <Tab label="1 hour" />
                         <Tab label="2 hours" />
                         <Tab label="12 hours" />
                         <Tab label="24 hours" />
                     </Tabs>
-                    <PieChart width={730} height={250}>
+                    <PieChart width={900} height={250}>
                         <Pie data={blocks.statistics} dataKey="blocks_mined" nameKey="miner_address" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
                     </PieChart>
                 </Paper>

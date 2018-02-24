@@ -17,6 +17,7 @@ import List, {
     ListItemSecondaryAction,
     ListItemText,
 } from 'material-ui/List';
+import moment from 'moment';
 
 const styles = theme => ({
     card: {
@@ -55,7 +56,7 @@ class BlockInfo extends React.Component {
         return (
             <Grid container justify="center">
                 <Grid item>
-                    {blocks.single && <Card className={classes.card}>
+                    {window.Krill.Policy && blocks.single && <Card className={classes.card}>
                         <div className={classes.header}>
                             <Grid container>
                                 <Grid item xs={12} sm={2}>
@@ -96,7 +97,7 @@ class BlockInfo extends React.Component {
                                                 primary="Transaction Value"
                                             />
                                             <ListItemSecondaryAction>
-                                                {blocks.single.value} KRL
+                                                {window.Krill.Policy.satoshisToCoins(blocks.single.value)} KRL
                                             </ListItemSecondaryAction>
                                         </ListItem>
                                         <ListItem>
@@ -104,7 +105,7 @@ class BlockInfo extends React.Component {
                                                 primary="Block Reward"
                                             />
                                             <ListItemSecondaryAction>
-                                                {blocks.single.reward} KRL
+                                                {window.Krill.Policy.satoshisToCoins(blocks.single.reward)} KRL
                                             </ListItemSecondaryAction>
                                         </ListItem>
                                     </List>
@@ -116,7 +117,7 @@ class BlockInfo extends React.Component {
                                                 primary="Timestamp"
                                             />
                                             <ListItemSecondaryAction>
-                                                {blocks.single.timestamp}
+                                                {moment(blocks.single.timestamp).format('MMMM Do YYYY, h:mm:ss a')}
                                             </ListItemSecondaryAction>
                                         </ListItem>
                                         <ListItem>
@@ -162,7 +163,7 @@ class BlockInfo extends React.Component {
                                     </Grid>
                                     <Grid item xs={12} sm={2}>
                                         <Typography variant="title">Value</Typography>
-                                        <Typography variant="caption">{transaction.value}</Typography>
+                                        <Typography variant="caption">{window.Krill.Policy.satoshisToCoins(transaction.value)} KRL</Typography>
                                     </Grid>
                                 </Grid>
                             ))}

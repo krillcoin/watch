@@ -12,6 +12,7 @@ import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import List, { ListItem,  ListItemSecondaryAction,  ListItemText,} from 'material-ui/List';
 import {Link} from 'react-router-dom';
+import moment from 'moment';
 
 const styles = theme => ({
     card: {
@@ -59,7 +60,7 @@ class AccountInfo extends React.Component {
         return (
             <Grid container justify="center">
                 <Grid item>
-                    {blocks.account && <div><Card className={classes.card}>
+                    {window.Krill.Policy && blocks.account && <div><Card className={classes.card}>
                         <div className={classes.header}>
                             <Grid container>
                                 <Grid item xs={12} sm={10}>
@@ -78,7 +79,7 @@ class AccountInfo extends React.Component {
                                                 primary="Balance"
                                             />
                                             <ListItemSecondaryAction>
-                                                {blocks.account.balance}
+                                                {window.Krill.Policy.satoshisToCoins(blocks.account.balance)} KRL
                                             </ListItemSecondaryAction>
                                         </ListItem>
                                         <ListItem>
@@ -109,10 +110,10 @@ class AccountInfo extends React.Component {
                                     <ListItem>
                                         <ListItemText
                                             primary="Sent Transaction"
-                                            secondary={transaction.timestamp}
+                                            secondary={moment(transaction.timestamp).format('MMMM Do YYYY, h:mm:ss a')}
                                         />
                                         <ListItemSecondaryAction>
-                                            {transaction.value}
+                                            {window.Krill.Policy.satoshisToCoins(transaction.value)}
                                         </ListItemSecondaryAction>
                                         <br/>
                                     </ListItem>
@@ -125,14 +126,14 @@ class AccountInfo extends React.Component {
                         <List>
                             {blocks.account.blocks.map((block, index) => (
 
-                                <div>
+                                <div key={index}>
                                     <ListItem>
                                         <ListItemText
                                             primary={<div>Mined Block <Link to={`/block/${block.height}`}>#{block.height}</Link></div>}
-                                            secondary={block.timestamp}
+                                            secondary={moment(block.timestamp).format('MMMM Do YYYY, h:mm:ss a')}
                                         />
                                         <ListItemSecondaryAction>
-                                            {block.reward}
+                                            {window.Krill.Policy.satoshisToCoins(block.reward)} KRL
                                         </ListItemSecondaryAction>
                                         <br/>
                                     </ListItem>
