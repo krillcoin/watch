@@ -46,7 +46,6 @@ class App extends Component {
             $.blockchain = $.consensus.blockchain;
             $.mempool = $.consensus.mempool;
             $.network = $.consensus.network;
-            $.wallet = await window.Krillcoin.Wallet.getPersistent();
 
             $.consensus.on('established', () => self._onConsensusEstablished());
             $.consensus.on('lost', () => console.error('Consensus lost'));
