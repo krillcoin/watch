@@ -51,7 +51,7 @@ class Header extends React.Component {
                 <AppBar position="fixed">
                     <Toolbar>
                         <Typography variant="title" color="inherit" className={classes.flex}>
-                            KrillCoin Watch
+                            KrillcoinCoin Watch
                         </Typography>
                         <Grid container justify="flex-start">
                             <Grid item>

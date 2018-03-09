@@ -60,7 +60,7 @@ class AccountInfo extends React.Component {
         return (
             <Grid container justify="center">
                 <Grid item>
-                    {window.Krill.Policy && blocks.account && <div><Card className={classes.card}>
+                    {window.Krillcoin.Policy && blocks.account && <div><Card className={classes.card}>
                         <div className={classes.header}>
                             <Grid container>
                                 <Grid item xs={12} sm={10}>
@@ -79,7 +79,7 @@ class AccountInfo extends React.Component {
                                                 primary="Balance"
                                             />
                                             <ListItemSecondaryAction>
-                                                {window.Krill.Policy.satoshisToCoins(blocks.account.balance)} KRL
+                                                {window.Krillcoin.Policy.satoshisToCoins(blocks.account.balance)} KRL
                                             </ListItemSecondaryAction>
                                         </ListItem>
                                         <ListItem>
@@ -113,7 +113,7 @@ class AccountInfo extends React.Component {
                                             secondary={moment(transaction.timestamp).format('MMMM Do YYYY, h:mm:ss a')}
                                         />
                                         <ListItemSecondaryAction>
-                                            {window.Krill.Policy.satoshisToCoins(transaction.value)}
+                                            {window.Krillcoin.Policy.satoshisToCoins(transaction.value)}
                                         </ListItemSecondaryAction>
                                         <br/>
                                     </ListItem>
@@ -133,7 +133,7 @@ class AccountInfo extends React.Component {
                                             secondary={moment(block.timestamp).format('MMMM Do YYYY, h:mm:ss a')}
                                         />
                                         <ListItemSecondaryAction>
-                                            {window.Krill.Policy.satoshisToCoins(block.reward)} KRL
+                                            {window.Krillcoin.Policy.satoshisToCoins(block.reward)} KRL
                                         </ListItemSecondaryAction>
                                         <br/>
                                     </ListItem>

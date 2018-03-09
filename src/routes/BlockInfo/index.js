@@ -56,7 +56,7 @@ class BlockInfo extends React.Component {
         return (
             <Grid container justify="center">
                 <Grid item>
-                    {window.Krill.Policy && blocks.single && <Card className={classes.card}>
+                    {window.Krillcoin.Policy && blocks.single && <Card className={classes.card}>
                         <div className={classes.header}>
                             <Grid container>
                                 <Grid item xs={12} sm={2}>
@@ -97,7 +97,7 @@ class BlockInfo extends React.Component {
                                                 primary="Transaction Value"
                                             />
                                             <ListItemSecondaryAction>
-                                                {window.Krill.Policy.satoshisToCoins(blocks.single.value)} KRL
+                                                {window.Krillcoin.Policy.satoshisToCoins(blocks.single.value)} KRL
                                             </ListItemSecondaryAction>
                                         </ListItem>
                                         <ListItem>
@@ -105,7 +105,7 @@ class BlockInfo extends React.Component {
                                                 primary="Block Reward"
                                             />
                                             <ListItemSecondaryAction>
-                                                {window.Krill.Policy.satoshisToCoins(blocks.single.reward)} KRL
+                                                {window.Krillcoin.Policy.satoshisToCoins(blocks.single.reward)} KRL
                                             </ListItemSecondaryAction>
                                         </ListItem>
                                     </List>
@@ -163,7 +163,7 @@ class BlockInfo extends React.Component {
                                     </Grid>
                                     <Grid item xs={12} sm={2}>
                                         <Typography variant="title">Value</Typography>
-                                        <Typography variant="caption">{window.Krill.Policy.satoshisToCoins(transaction.value)} KRL</Typography>
+                                        <Typography variant="caption">{window.Krillcoin.Policy.satoshisToCoins(transaction.value)} KRL</Typography>
                                     </Grid>
                                 </Grid>
                             ))}

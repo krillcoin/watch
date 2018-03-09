@@ -20,8 +20,8 @@ class About extends React.Component {
                     <Card className={classes.card}>
                         <CardContent>
                             <Typography className={classes.title}>WHAT IS THIS?</Typography>
-                            <Typography variant="body" component="p" gutterBottom>This website is a blockchain explorer for the new Krill blockchain project. Because the Krill blockchain lives in your browser, this website works without a server. All necessary information is present in the blockchain, loaded in this browser.</Typography>
-                            <Typography variant="body" component="p">The source code for this website is open source and available at https://github.com/krillcoin/watch.To learn more about the Krill blockchain, visit the homepage, check out @krillcoin on Twitter or Medium and join the Discord and Telegram channels.</Typography>
+                            <Typography variant="body" component="p" gutterBottom>This website is a blockchain explorer for the new Krillcoin blockchain project. Because the Krillcoin blockchain lives in your browser, this website works without a server. All necessary information is present in the blockchain, loaded in this browser.</Typography>
+                            <Typography variant="body" component="p">The source code for this website is open source and available at https://github.com/krillcoin/watch.To learn more about the Krillcoin blockchain, visit the homepage, check out @krillcoin on Twitter or Medium and join the Discord and Telegram channels.</Typography>
                         </CardContent>
                     </Card>
                 </Grid>

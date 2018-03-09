@@ -38,15 +38,15 @@ class App extends Component {
 
     init() {
         let self = this;
-        window.Krill.init(async function() {
+        window.Krillcoin.init(async function() {
             const $ = {};
             window.$ = $;
-            $.consensus = await window.Krill.Consensus.nano();
+            $.consensus = await window.Krillcoin.Consensus.nano();
 
             $.blockchain = $.consensus.blockchain;
             $.mempool = $.consensus.mempool;
             $.network = $.consensus.network;
-            $.wallet = await window.Krill.Wallet.getPersistent();
+            $.wallet = await window.Krillcoin.Wallet.getPersistent();
 
             $.consensus.on('established', () => self._onConsensusEstablished());
             $.consensus.on('lost', () => console.error('Consensus lost'));
@@ -55,10 +55,10 @@ class App extends Component {
             $.network.connect();
         }, function(code) {
             switch (code) {
-                case window.Krill.ERR_WAIT:
+                case window.Krillcoin.ERR_WAIT:
                     alert('Error: Already open in another tab or window.');
                     break;
-                case window.Krill.ERR_UNSUPPORTED:
+                case window.Krillcoin.ERR_UNSUPPORTED:
                     alert('Error: Browser not supported');
                     break;
                 default:
